@@ -1,6 +1,7 @@
 #!/bin/bash
 DEBIAN_FRONTEND=noninteractive apt-get update
 DEBIAN_FRONTEND=noninteractive apt-get install -y -q openjdk-7-jre-headless wget dialog curl sudo lsof vim axel telnet
+DEBIAN_FRONTEND=noninteractive apt-get install -y -q uuid-runtime
 
 curl -s http://archive.cloudera.com/cdh5/ubuntu/trusty/amd64/cdh/archive.key | apt-key add -
 echo 'deb [arch=amd64] http://archive.cloudera.com/cdh5/ubuntu/trusty/amd64/cdh trusty-cdh5 contrib' > /etc/apt/sources.list.d/cloudera.list
@@ -50,8 +51,10 @@ DEBIAN_FRONTEND=noninteractive apt-get -y install hive hbase hbase-thrift hbase-
 #Initiate Oozie Database
 oozie-setup db create -run
 
-
-#Create HUE Secret Key
-sed -i 's/secret_key=/secret_key=_S@s+D=h;B,s$C%k#H!dMjPmEsSaJR/g' /etc/hue/conf/hue.ini
+create_hue_key() {
+  local new_password=$1
+  sed -i "s/secret_key=.*/secret_key=${new_password:0:15}/" /etc/hue/conf/hue.ini
+}
+create_hue_key `uuidgen`
 
 

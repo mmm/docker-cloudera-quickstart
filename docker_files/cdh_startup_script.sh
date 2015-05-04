@@ -11,7 +11,7 @@ service oozie start
 echo "Start Components"
 service hue start
 
-nohup hiveserver2 &
+nohup hiveserver2 & #TODO make this a real service
 
 bash -c 'for x in `cd /etc/init.d ; ls impala-*` ; do sudo service $x start ; done'
 service hbase-master start

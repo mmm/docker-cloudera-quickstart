@@ -1,7 +1,7 @@
 # VERSION   0.1
 
 FROM ubuntu:14.04
-MAINTAINER Caio Quirino <caioquirino@caioquirino.com.br>
+MAINTAINER Mark Mims <mark@svds.com>
 
 ADD docker_files/cdh_installer.sh /tmp/cdh_installer.sh
 ADD docker_files/cdh_startup_script.sh /usr/bin/cdh_startup_script.sh
