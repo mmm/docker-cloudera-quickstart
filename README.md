@@ -3,13 +3,13 @@
 
 Run the CDH Quick Start image in a docker container.
 
-The latest CDH release is on `master`... pinned versions can be found on other
-branches.
+The latest CDH release is on `master` and pinned versions can be found on
+dedicated branches.
 
 
 ## Install
 
-This image is somewhat large... you might want to do a separate
+This image is somewhat large, so you might want to do a separate
 
     docker pull svds/cdh
 
@@ -30,11 +30,11 @@ watch logs with
 
     docker logs -f <container_id>
 
-attach with
+attach to the container with
 
     docker exec -it <container_id> bash -l
 
-then run the usual cdh commands
+then run any of the usual cdh commands
 
     hadoop fs -ls /
     impala-shell
@@ -73,5 +73,5 @@ Github page: https://github.com/silicon-valley-data-science/docker-cdh
 
 This image started life as a modified fork of
 [caioquirino/docker-cloudera-quickstart](https://github.com/caioquirino/docker-cloudera-quickstart.git)
-and is now curated by the Silicon Valley Data Science team.
+and is now curated by the Silicon Valley Data Science engineering team.
 
