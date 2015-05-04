@@ -1,4 +1,5 @@
-# Docker Image for Cloudera Quickstart
+
+# A Docker Image for Cloudera Quickstart
 
 Run the CDH Quick Start image in a docker container.
 
@@ -8,21 +9,18 @@ branches.
 
 ## Install
 
-To run the docker-cdh image from docker-hub, simply use the following command:
-
-    docker run -i svds/cdh
-
-It's large, so you might want to do a separate
+This image is somewhat large... you might want to do a separate
 
     docker pull svds/cdh
 
-first.
+to install.
+
 
 ## Use
 
 Spin it up with 
 
-    docker run -id svds/cdh
+    docker run -td svds/cdh
 
 get the container id from
 
@@ -61,6 +59,7 @@ etc.
 - Cloudera Search (Apache licensed)
 - Apache Spark
 
+
 ## Links
 
 Pull the image on Docker Hub: https://registry.hub.docker.com/u/svds/cdh
@@ -70,6 +69,9 @@ Github page: https://github.com/silicon-valley-data-science/docker-cdh
 [Cloudera Documentation](http://www.cloudera.com/content/cloudera/en/documentation/core/latest/)
 
 
+## Credits
+
 This image started life as a modified fork of
 [caioquirino/docker-cloudera-quickstart](https://github.com/caioquirino/docker-cloudera-quickstart.git)
 and is now curated by the Silicon Valley Data Science team.
+
