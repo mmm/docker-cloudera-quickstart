@@ -1,7 +1,7 @@
 # VERSION   0.1
 
-FROM ubuntu:14.04
-MAINTAINER Mark Mims <mark@svds.com>
+FROM ubuntu:16.04
+MAINTAINER Mark Mims <mmm@ubuntu.com>
 
 ADD docker_files/cdh_installer.sh /tmp/cdh_installer.sh
 ADD docker_files/cdh_startup_script.sh /usr/bin/cdh_startup_script.sh
