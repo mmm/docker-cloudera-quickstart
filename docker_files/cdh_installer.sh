@@ -12,7 +12,9 @@ echo 'deb-src http://archive.cloudera.com/cdh5/ubuntu/xenial/amd64/cdh xenial-cd
 
 apt-get update
 
-apt-get -y install hadoop-conf-pseudo impala impala-server impala-state-store impala-catalog impala-shell
+apt-get -y install hadoop-conf-pseudo
+sed -i 's/localhost/0.0.0.0/' /etc/hadoop/conf.pseudo/core-site.xml
+apt-get -y install impala impala-server impala-state-store impala-catalog impala-shell
 
 #CDH5-Installation-Guide Step 1 - Format the NameNode
 echo "Step 1 - Format the NameNode"
@@ -49,7 +51,15 @@ sudo -u hdfs hadoop fs -chown hbase /hbase
 
 #CDH5-Installation-Guide Install HBase
 echo "Install Cloudera Components"
-apt-get -y install hive hbase hbase-thrift hbase-master pig hue oozie oozie-client spark-core spark-master spark-worker spark-history-server spark-python
+apt-get -y install hive hbase hbase-thrift hbase-master pig hue oozie oozie-client 
+apt-get -y install spark-core spark-master spark-worker spark-history-server spark-python
+#apt-get -y install spark2-core spark2-master spark2-worker spark2-history-server spark2-python
+
+#export SPARK_VERSION=2.2.0
+#export SPARK_HADOOP_VERSION=2.7
+#curl -OL http://www-us.apache.org/dist/spark/spark-$SPARK_VERSION/spark-$SPARK_VERSION-bin-hadoop$SPARK_HADOOP_VERSION.tgz
+#tar xf spark-$SPARK_VERSION-bin-hadoop$SPARK_HADOOP_VERSION.tgz
+#rm spark-$SPARK_VERSION-bin-hadoop$SPARK_HADOOP_VERSION.tgz
 
 #Initiate Oozie Database
 oozie-setup db create -run
